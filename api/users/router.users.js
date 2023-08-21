@@ -15,5 +15,8 @@ router.post('/', userControler.addUser)
 // POST localhost:8020/api/users/login
 router.post('/login', userControler.loginUser)
 
+// POST localhost:8020/api/users/login
+router.delete('/:id', userControler.deleteUser)
+
 
 export default router;

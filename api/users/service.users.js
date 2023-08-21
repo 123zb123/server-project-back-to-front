@@ -1,9 +1,9 @@
 import userDal from './dal.users.js';
 import bcrypt from 'bcrypt';
 
-const getUsers = async () => {
+const getAllUsers = async (email, password) => {
     try {
-        const users = await userDal.getUsers();
+        const users = await userDal.getAllUsers(email, password);
         return users;
     } catch (err) {
         console.error('Error reading data:', err);
@@ -11,9 +11,9 @@ const getUsers = async () => {
     }
 };
 
-const getUserById = async (id) => {
+const getUserById = async (id, email, password) => {
     try {
-        const user = await userDal.getUserById(id);
+        const user = await userDal.deleteUSer(id, email, password);
         return user;
     } catch (err) {
         console.error('Error reading data:', err);
@@ -55,12 +55,23 @@ const loginUser = async (email, password) => {
   }
 };
 
+const deleteUser = async (id, email, password) => {
+  try {
+      const user = await userDal.deleteUser(id, email, password);
+      return user;
+  } catch (err) {
+      console.error('Error reading data:', err);
+      throw err;
+  }
+};
+
 
 const userService = {
-    getUsers,
-    getUserById,
-    addUser,
-    loginUser
+  getAllUsers,
+  getUserById,
+  addUser,
+  loginUser,
+  deleteUser
 };
 
 export default userService;
