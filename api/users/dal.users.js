@@ -2,7 +2,6 @@
 import fs from 'fs';
 import { promisify } from 'util';
 import bcrypt from 'bcrypt';
-import { log } from 'console';
 
 const readFileAsync = promisify(fs.readFile)
 const writeFileAsync = promisify(fs.writeFile)
@@ -47,6 +46,14 @@ const addUser = async (newUser) => {
     try {
         const dataAsync = await readFileAsync('./usersData.json', 'utf8');
         const jsonData = JSON.parse(dataAsync);
+        let userId = jsonData[0].id;
+
+        for (const user of jsonData){
+            if (user.id > userId){
+                userId = user.id
+            }
+        }
+        newUser.id = userId + 1
         jsonData.push(newUser);
         
         const updatedData = JSON.stringify(jsonData);
