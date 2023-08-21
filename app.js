@@ -12,13 +12,6 @@ app.use(express.json());
 app.use(morgan('dev'))
 
 
-// const corsOptions = {
-//     origin: 'C:\\Users\\ZVIKA\\Documents\\project2\\Dom Project\\shop.js', // Specify the allowed origin
-//     methods: ['GET', 'POST', 'DELETE', 'PUT', 'PATCH'],     // Specify allowed HTTP methods
-//     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-// };
-
-// app.use(cors(corsOptions)); 
 
 app.use(cors())
 
