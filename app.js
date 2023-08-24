@@ -15,6 +15,9 @@ app.use(morgan('dev'))
 
 app.use(cors())
 
+app.get('/', (req, res) => {
+    res.send('API Deployed 🚀')
+  })
 
 app.use('/api/products', productsRouter)
 
