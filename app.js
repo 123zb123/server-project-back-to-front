@@ -12,7 +12,14 @@ app.use(express.json());
 app.use(morgan('dev'))
 
 
-app.use(cors());
+const corsOptions = {
+    origin: 'https://example-store.netlify.app', 
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+    optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 app.get('/', (req, res) => {
     res.send('API Deployed 🚀')
