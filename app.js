@@ -14,7 +14,7 @@ app.use(morgan('dev'))
 
 const corsOptions = {
     origin: 'https://exemple-store.netlify.app', 
-    methods: '*',
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true,
     optionsSuccessStatus: 204,
 };
