@@ -2,15 +2,15 @@ import productsService from './service.products.js';
 
 const getAllProducts = async (req, res) => {
     try {
-        console.log("getAllUsers")
-        const users = await productsService.getAllProducts();
-        if (users.length > 0)
-            return res.status(200).send(users
-                // "message": "Users fetch successfuly!",
-                // "data": users
+        console.log("getAllproducts")
+        const products = await productsService.getAllProducts();
+        if (products.length > 0)
+            return res.status(200).send(products
+                // "message": "products fetch successfuly!",
+                // "data": products
             )
         else {
-            return res.status(404).json({ "message": "No Users" })
+            return res.status(404).json({ "message": "No products" })
         }
     } catch (error) {
         console.error(error)
@@ -20,11 +20,11 @@ const getAllProducts = async (req, res) => {
 const getProductById = async (req, res) => {
     try {
         const { id } = req.params;
-        const user = await productsService.getProductById(id);
-        if(user) {
-            res.status(200).json(user)
+        const product = await productsService.getProductById(id);
+        if(product) {
+            res.status(200).json(product)
         } else {
-            res.status(404).json({ "message": "user not found" })
+            res.status(404).json({ "message": "product not found" })
 
         }
     } catch (error) {

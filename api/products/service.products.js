@@ -3,8 +3,8 @@ import productsDal from './dal.products.js';
 
 const getAllProducts = async () => {
     try {
-        const users = await productsDal.getAllProducts();
-        return users;
+        const products = await productsDal.getAllProducts();
+        return products;
     } catch (err) {
         console.error('Error reading data:', err);
         throw err;
@@ -13,8 +13,8 @@ const getAllProducts = async () => {
 
 const getProductById = async (id) => {
     try {
-        const user = await productsDal.getProductById(id);
-        return user;
+        const product = await productsDal.getProductById(id);
+        return product;
     } catch (err) {
         console.error('Error reading data:', err);
         throw err;

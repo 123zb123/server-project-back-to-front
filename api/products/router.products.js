@@ -3,10 +3,10 @@ import productsController from './controller.products.js'
 
 const router = express.Router()
 
-// GET localhost:8200/api/users/
+// GET localhost:8200/api/products/
 router.get('/', productsController.getAllProducts)
 
-// GET localhost:8020/api/users/8
+// GET localhost:8020/api/products/8
 router.get('/:id', productsController.getProductById)
 
 // POST localhost:8200/api/products/
