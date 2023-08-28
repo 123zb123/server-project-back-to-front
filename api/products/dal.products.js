@@ -75,19 +75,16 @@ const deleteProduct = async (id) => {
         const jsonData = JSON.parse(dataAsinc);
 
         const productIndex = jsonData.findIndex(element => id === String(element.id));
-        delete jsonData[productIndex]
+        jsonData.splice(productIndex, 1);
         const updatedData = JSON.stringify(jsonData); 
         
         await writeFileAsinc('./data.json', updatedData);
         
         console.log('The product deleted successfully.');
     } catch (err) {
-        console.error('Error adding new product:', err);
+        console.error('product not found...', err);
     }
 };
-
-
-
 
 const dalProducts = {
     getAllProducts,
