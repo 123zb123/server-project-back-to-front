@@ -7,11 +7,6 @@ import cors from 'cors';
 const port = 8200;
 const app = express();
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", "*"); // A
-    next();
-  });
-
 app.use(express.json());
 
 app.use(morgan('dev'))
@@ -19,7 +14,7 @@ app.use(morgan('dev'))
 
 const corsOptions = {
     origin: 'https://exemple-store.netlify.app', 
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    methods: '*',
     credentials: true,
     optionsSuccessStatus: 204,
 };
