@@ -34,7 +34,7 @@ const updateProduct = async (id, update) => {
   try {
     await dalProducts.updateProduct(id, update)
   }catch (error) {
-    console.log(error);
+    console.log('Some error heppen while update data',error);
 }
 }
 
